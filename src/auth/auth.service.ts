@@ -46,9 +46,9 @@ export class AuthService {
     const pwMatches = await argon.verify(user.hash, dto.password);
 
     // if password =/ not match --> throw exeption
-    if (!pwMatches)
-      throw new ForbiddenException('Wrong creds !');
+    if (!pwMatches) throw new ForbiddenException('Wrong creds !');
     // if password match --> return user
-    return { msg: 'I have sign in' };
+    delete user.hash;
+    return user;
   }
 }
