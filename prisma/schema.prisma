@@ -39,5 +39,4 @@ model Bookmark {
   user   User @relation(fields: [userId], references: [id])
 
   @@map("bookmarks")
-  
 }
